@@ -1,0 +1,258 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.39.0.0
+Copyright (C) 2023 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Mark Bassem, HP Inc., LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.39.0.0
+Toolchain Path:  D:\programs\Keil5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.21
+Assembler:       Armasm.exe V6.21
+Linker/Locator:  ArmLink.exe V6.21
+Library Manager: ArmAr.exe V6.21
+Hex Converter:   FromElf.exe V6.21
+CPU DLL:         SARMCM3.DLL V5.39.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      lmidk-agdi.dll V???
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+D:\kolleya\spring 24\2-RTOS\Mark Labs\lab1\project.uvprojx
+Project File Date:  03/18/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.21', folder: 'D:\programs\Keil5\ARM\ARMCLANG\Bin'
+Rebuild target 'Target 1'
+test_file.c(13): warning: no previous extern declaration for non-static variable 'x' [-Wmissing-variable-declarations]
+   13 | int x = 0;
+      |     ^
+test_file.c(13): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+   13 | int x = 0;
+      | ^
+test_file.c(15): warning: no previous prototype for function 'SysTick_Handler' [-Wmissing-prototypes]
+   15 | void SysTick_Handler(void){
+      |      ^
+test_file.c(15): note: declare 'static' if the function is not intended to be used outside of this translation unit
+   15 | void SysTick_Handler(void){
+      | ^
+      | static 
+test_file.c(19): warning: no previous prototype for function 'delay' [-Wmissing-prototypes]
+   19 | void delay(int msecs)
+      |      ^
+test_file.c(19): note: declare 'static' if the function is not intended to be used outside of this translation unit
+   19 | void delay(int msecs)
+      | ^
+      | static 
+test_file.c(27): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   27 | void blinky1()
+      |             ^
+      |              void
+test_file.c(27): warning: no previous prototype for function 'blinky1' [-Wmissing-prototypes]
+   27 | void blinky1()
+      |      ^
+test_file.c(27): note: declare 'static' if the function is not intended to be used outside of this translation unit
+   27 | void blinky1()
+      | ^
+      | static 
+test_file.c(28): warning: function 'blinky1' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+   28 | {
+      | ^
+test_file.c(36): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   36 | void blinky2()
+      |             ^
+      |              void
+test_file.c(36): warning: no previous prototype for function 'blinky2' [-Wmissing-prototypes]
+   36 | void blinky2()
+      |      ^
+test_file.c(36): note: declare 'static' if the function is not intended to be used outside of this translation unit
+   36 | void blinky2()
+      | ^
+      | static 
+test_file.c(37): warning: function 'blinky2' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+   37 | {
+      | ^
+test_file.c(45): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   45 | int main()
+      |         ^
+      |          void
+test_file.c(60): warning: no newline at end of file [-Wnewline-eof]
+   60 | }
+      |  ^
+11 warnings generated.
+compiling test_file.c...
+assembling startup_TM4C123.s...
+RTE/Device/TM4C123GH6PM/system_TM4C123.c(13): warning: In file included from...
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123\TM4C123.h(98): warning: In file included from...
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(298): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  298 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(338): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  338 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(357): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  357 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(713): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  713 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(729): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  729 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(774): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  774 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(779): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  779 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(872): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  872 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(885): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  885 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(892): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  892 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(897): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  897 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(904): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  904 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(910): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  910 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(917): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  917 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(924): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  924 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(929): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  929 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(936): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  936 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(942): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  942 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(949): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  949 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(956): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  956 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(961): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  961 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(968): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  968 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(974): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  974 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(981): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  981 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(988): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  988 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(993): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+  993 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1000): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1000 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1006): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1006 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1013): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1013 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1020): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1020 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1025): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1025 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1032): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1032 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1038): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1038 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1045): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1045 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1052): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1052 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1057): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1057 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1064): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1064 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1070): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1070 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1077): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1077 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1084): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1084 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1089): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1089 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1096): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1096 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1102): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1102 |   union {
+      |   ^
+C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123/TM4C123GH6PM.h(1251): warning: anonymous unions are a C11 extension [-Wc11-extensions]
+ 1251 |   union {
+      |   ^
+44 warnings generated.
+compiling system_TM4C123.c...
+linking...
+Program Size: Code=1016 RO-data=636 RW-data=0 ZI-data=616  
+".\Objects\project.axf" - 0 Error(s), 55 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.0.0.pack
+                ARM::CMSIS@6.0.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 6.0.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.TM4C_DFP.1.1.0.pack
+                Keil::TM4C_DFP@1.1.0
+                Texas Instruments Tiva C Series Device Support and Examples
+   * Component: Startup Version: 1.0.1
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_Target_1
+  C:/Users/Mark/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include
+  C:/Users/Mark/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE@6.0.0
+
+   * Component: Keil::Device:Startup@1.0.1
+      Source file:   Device/Source/system_TM4C123.c
+      Include file:  Device/Include/TM4C123/TM4C123.h
+      Source file:   Device/Source/ARM/startup_TM4C123.s
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>
