@@ -1,0 +1,232 @@
+###############################################################################
+#
+# IAR ELF Linker V9.30.1.335/W64 for ARM                  29/Feb/2024  07:39:51
+# Copyright 2007-2022 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\DELL\Desktop\Spring 24\Real Time and Embedded System
+#        Design\Labs\Lab 2\Code\Debug\Exe\Project.out
+#    Map file     =
+#        C:\Users\DELL\Desktop\Spring 24\Real Time and Embedded System
+#        Design\Labs\Lab 2\Code\Debug\List\Project.map
+#    Command line =
+#        -f "C:\Users\DELL\Desktop\Spring 24\Real Time and Embedded System
+#        Design\Labs\Lab 2\Code\Debug\Exe\Project.out.rsp"
+#        ("C:\Users\DELL\Desktop\Spring 24\Real Time and Embedded System
+#        Design\Labs\Lab 2\Code\Debug\Obj\main.o" "C:\Users\DELL\Desktop\Spring
+#        24\Real Time and Embedded System Design\Labs\Lab
+#        2\Code\Debug\Obj\startup_ewarm.o" --no_out_extension -o
+#        "C:\Users\DELL\Desktop\Spring 24\Real Time and Embedded System
+#        Design\Labs\Lab 2\Code\Debug\Exe\Project.out" --redirect
+#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map
+#        "C:\Users\DELL\Desktop\Spring 24\Real Time and Embedded System
+#        Design\Labs\Lab 2\Code\Debug\List\Project.map" --config "C:\Program
+#        Files\IAR Systems\Embedded Workbench
+#        9.1\arm/config/linker/TexasInstruments/TM4C123GH6.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale --cpu=Cortex-M4
+#        --fpu=VFPv4_sp)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because --advanced_heap
+was not specified and the application did not appear to
+be primarily optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+do not initialize { rw section .noinit };
+initialize by copy { rw };
+
+  Section            Kind         Address   Size  Object
+  -------            ----         -------   ----  ------
+"A0":                                      0x26c
+  .intvec            const            0x0  0x26c  startup_ewarm.o [1]
+                                  - 0x26c  0x26c
+
+"P1":                                      0x310
+  .text              ro code        0x26c  0x1ac  main.o [1]
+  .text              ro code        0x418   0x38  zero_init3.o [4]
+  .text              ro code        0x450   0x2a  copy_init3.o [4]
+  .text              ro code        0x47c   0x28  data_init.o [4]
+  .text              ro code        0x4a4   0x22  fpinit_M.o [3]
+  .iar.init_table    const          0x4c8   0x24  - Linker created -
+  .text              ro code        0x4ec   0x1e  startup_ewarm.o [1]
+  .text              ro code        0x50c   0x1c  cstartup_M.o [4]
+  .text              ro code        0x528   0x1e  cmain.o [4]
+  .text              ro code        0x546    0x4  low_level_init.o [2]
+  .text              ro code        0x54a    0x4  exit.o [2]
+  .text              ro code        0x550    0xa  cexit.o [4]
+  .text              ro code        0x55c   0x14  exit.o [5]
+  Initializer bytes  const          0x570    0xc  <for P2-1>
+  .rodata            const          0x57c    0x0  zero_init3.o [4]
+  .rodata            const          0x57c    0x0  copy_init3.o [4]
+                                  - 0x57c  0x310
+
+"P2", part 1 of 3:                           0xc
+  P2-1                        0x2000'0000    0xc  <Init block>
+    .data            inited   0x2000'0000    0x4  main.o [1]
+    .data            inited   0x2000'0004    0x4  main.o [1]
+    .data            inited   0x2000'0008    0x4  main.o [1]
+                            - 0x2000'000c    0xc
+
+"P2", part 2 of 3:                         0x148
+  .bss               zero     0x2000'000c   0xa0  main.o [1]
+  .bss               zero     0x2000'00ac   0xa0  main.o [1]
+  .bss               zero     0x2000'014c    0x4  main.o [1]
+  .bss               zero     0x2000'0150    0x4  main.o [1]
+                            - 0x2000'0154  0x148
+
+"P2", part 3 of 3:                         0x200
+  .noinit            uninit   0x2000'0154  0x200  startup_ewarm.o [1]
+                            - 0x2000'0354  0x200
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x57c     0x3'ffff  0x3'fa84
+  0x2000'0354  0x2000'7fff    0x7cac
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x148:
+          0x2000'000c  0x148
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0xc:
+                0x570    0xc
+    1 destination range, total size 0xc:
+          0x2000'0000    0xc
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+command line/config:
+    -------------------------------------------
+    Total:
+
+C:\Users\DELL\Desktop\Spring 24\Real Time and Embedded System Design\Labs\Lab 2\Code\Debug\Obj: [1]
+    main.o                428       12      340
+    startup_ewarm.o        30      620      512
+    -------------------------------------------
+    Total:                458      632      852
+
+dl7M_tln.a: [2]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+m7M_tls.a: [3]
+    fpinit_M.o             34
+    -------------------------------------------
+    Total:                 34
+
+rt7M_tl.a: [4]
+    cexit.o                10
+    cmain.o                30
+    copy_init3.o           42
+    cstartup_M.o           28
+    data_init.o            40
+    zero_init3.o           56
+    -------------------------------------------
+    Total:                206
+
+shb_l.a: [5]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                    8        2
+    Linker created                  36
+-----------------------------------------------
+    Grand Total:          734      670      852
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base         0x4c8          --   Gb  - Linker created -
+.iar.init_table$$Limit        0x4ec          --   Gb  - Linker created -
+?main                         0x529         Code  Gb  cmain.o [4]
+FaultISR                      0x507    0x2  Code  Lc  startup_ewarm.o [1]
+IntDefaultHandler             0x509    0x2  Code  Lc  startup_ewarm.o [1]
+NmiSR                         0x505    0x2  Code  Lc  startup_ewarm.o [1]
+Region$$Table$$Base           0x4c8          --   Gb  - Linker created -
+Region$$Table$$Limit          0x4ec          --   Gb  - Linker created -
+ResetISR                      0x4ed   0x12  Code  Gb  startup_ewarm.o [1]
+SysTick_Handler               0x2ed    0xa  Code  Gb  main.o [1]
+__cmain                       0x529         Code  Gb  cmain.o [4]
+__exit                        0x55d   0x14  Code  Gb  exit.o [5]
+__iar_copy_init3              0x451   0x2a  Code  Gb  copy_init3.o [4]
+__iar_data_init3              0x47d   0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp                0x4a5         Code  Gb  fpinit_M.o [3]
+__iar_program_start           0x50d         Code  Gb  cstartup_M.o [4]
+__iar_zero_init3              0x419   0x38  Code  Gb  zero_init3.o [4]
+__low_level_init              0x547    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0  0x26c  Data  Gb  startup_ewarm.o [1]
+_call_main                    0x535         Code  Gb  cmain.o [4]
+_exit                         0x551         Code  Gb  cexit.o [4]
+exit                          0x54b    0x4  Code  Gb  exit.o [2]
+l_tickCtr               0x2000'014c    0x4  Data  Lc  main.o [1]
+main                          0x2f9   0xec  Code  Gb  main.o [1]
+main_blinky1                  0x26d   0x40  Code  Gb  main.o [1]
+main_blinky2                  0x2ad   0x40  Code  Gb  main.o [1]
+pui32Stack              0x2000'0154  0x200  Data  Lc  startup_ewarm.o [1]
+sp_blinky1              0x2000'0000    0x4  Data  Gb  main.o [1]
+sp_blinky2              0x2000'0004    0x4  Data  Gb  main.o [1]
+stack_blinky1           0x2000'000c   0xa0  Data  Gb  main.o [1]
+stack_blinky2           0x2000'00ac   0xa0  Data  Gb  main.o [1]
+start                   0x2000'0150    0x4  Data  Gb  main.o [1]
+ticks                   0x2000'0008    0x4  Data  Gb  main.o [1]
+
+
+[1] = C:\Users\DELL\Desktop\Spring 24\Real Time and Embedded System Design\Labs\Lab 2\Code\Debug\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  734 bytes of readonly  code memory
+  670 bytes of readonly  data memory
+  852 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
