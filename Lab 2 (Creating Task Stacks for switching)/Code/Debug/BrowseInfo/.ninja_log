@@ -1,0 +1,11 @@
+# ninja log v5
+1	62	7308882790000000	C:/Users/DELL/Desktop/Spring 24/Real Time and Embedded System Design/Labs/Lab 2/Code/Debug/BrowseInfo/main.xcl	ecfb1ecee146ef9f
+66	204	7308882794364413	C:/Users/DELL/Desktop/Spring 24/Real Time and Embedded System Design/Labs/Lab 2/Code/Debug/BrowseInfo/main.pbi	a0d913dc4c150ff1
+207	213	7308882794464067	C:/Users/DELL/Desktop/Spring 24/Real Time and Embedded System Design/Labs/Lab 2/Code/Debug/BrowseInfo/Project.pbd	be56845dcd2b1343
+216	387	7308882796049712	C:/Users/DELL/Desktop/Spring 24/Real Time and Embedded System Design/Labs/Lab 2/Code/Debug/BrowseInfo/Project.pbw	a948035d4631fdb1
+0	72	7308883930000000	C:/Users/DELL/Desktop/Spring 24/Real Time and Embedded System Design/Labs/Lab 2/Code/Debug/BrowseInfo/main.xcl	19ce7d3c6ac8482
+3	79	7308883930000000	C:/Users/DELL/Desktop/Spring 24/Real Time and Embedded System Design/Labs/Lab 2/Code/Debug/BrowseInfo/startup_ewarm.xcl	bc68d35e0b74d980
+77	143	7308883936545445	C:/Users/DELL/Desktop/Spring 24/Real Time and Embedded System Design/Labs/Lab 2/Code/Debug/BrowseInfo/main.pbi	a0d913dc4c150ff1
+83	229	7308883937403249	C:/Users/DELL/Desktop/Spring 24/Real Time and Embedded System Design/Labs/Lab 2/Code/Debug/BrowseInfo/startup_ewarm.pbi	9632c1339374c7ca
+231	265	7308883937777303	C:/Users/DELL/Desktop/Spring 24/Real Time and Embedded System Design/Labs/Lab 2/Code/Debug/BrowseInfo/Project.pbd	cd486dbcf6147a0a
+269	912	7308883943959103	C:/Users/DELL/Desktop/Spring 24/Real Time and Embedded System Design/Labs/Lab 2/Code/Debug/BrowseInfo/Project.pbw	a948035d4631fdb1

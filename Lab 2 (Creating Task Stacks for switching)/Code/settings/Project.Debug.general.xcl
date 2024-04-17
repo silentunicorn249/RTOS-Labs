@@ -1,0 +1,13 @@
+"C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armPROC.dll" 
+
+"C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armSIM2.dll" 
+
+"C:\Users\DELL\Desktop\Spring 24\Real Time and Embedded System Design\Labs\Lab 2\Code\Debug\Exe\Project.out" 
+
+--plugin="C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armbat.dll" 
+
+--device_macro="C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm/config/debugger/TexasInstruments/TM4C123.dmac" 
+
+
+
+
