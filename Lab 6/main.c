@@ -10,6 +10,42 @@ int cntr = 0;
 QueueHandle_t xQueue;
 
 
+char* itoa(int num, char* str, int base) {
+    int i = 0;
+    int isNegative = 0;
+
+    // Handle negative numbers
+    if (num < 0 && base == 10) {
+        isNegative = 1;
+        num = -num;
+    }
+
+    // Process individual digits
+    do {
+        int rem = num % base;
+        str[i++] = (rem > 9) ? (rem - 10) + 'a' : rem + '0';
+        num /= base;
+    } while (num);
+
+    // If number is negative, append '-'
+    if (isNegative) {
+        str[i++] = '-';
+    }
+
+    str[i] = '\0'; // Null-terminate the string
+
+    // Reverse the string
+    int j = 0;
+    int len = i;
+    for (j = 0; j < len / 2; j++) {
+        char temp = str[j];
+        str[j] = str[len - j - 1];
+        str[len - j - 1] = temp;
+    }
+
+    return str;
+}
+
 void UART5_init(void)
 {
 	SYSCTL_RCGCUART_R |= 0x20; /* enable clock to UART5 */
@@ -81,7 +117,7 @@ void Task2(void *pvParameters)
 			GPIO_PORTF_DATA_R = 0x04;
 			if (xQueueSend(xQueue, &cntr, portMAX_DELAY) == pdPASS)
 			{
-				cntr = 0; // Reset counter after sending
+				//cntr = 0; // Reset counter after sending
 			}
 			vTaskDelay(500 / portTICK_PERIOD_MS); // Debounce delay
 		}
@@ -115,7 +151,11 @@ void Task3(void *pvParameters)
 	{
 		if (xQueueReceive(xQueue, &rcvCntr, portMAX_DELAY))
 		{
-			UART_Write_String("Done"); //put rcvcntr
+			//printf("Entered here");
+			char final_message[20];
+			sprintf(final_message, "Recieved: %d\n", cntr);
+			cntr = 0;
+			UART_Write_String(final_message); //put rcvcntr
 			xQueueReset(xQueue);
 			taskYIELD();
 		}
