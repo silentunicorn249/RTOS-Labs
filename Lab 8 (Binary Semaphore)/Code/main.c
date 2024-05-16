@@ -4,202 +4,85 @@
 #include <task.h>
 #include "tm4c123gh6pm.h"
 #include "DIO.h"
-#include "queue.h"
+#include "semphr.h"
 
-int cntr = 0;
-QueueHandle_t xQueue;
+void PortF_Init(void){ 
+ SYSCTL_RCGCGPIO_R |= 0x00000020; // 1) F clock
+ GPIO_PORTF_LOCK_R = 0x4C4F434B; // 2) unlock PortF PF0 
+ GPIO_PORTF_CR_R = 0x1F; // allow changes to PF4-0 
+ GPIO_PORTF_AMSEL_R= 0x00; // 3) disable analog function
+ GPIO_PORTF_PCTL_R = 0x00000000; // 4) GPIO clear bit PCTL 
+ GPIO_PORTF_DIR_R = 0x0E; // 5) PF4,PF0 input, PF3,PF2,PF1 output 
+ GPIO_PORTF_AFSEL_R = 0x00; // 6) no alternate function
+ GPIO_PORTF_AFSEL_R = 0x00; // 6) no alternate function
+ GPIO_PORTF_PUR_R = 0x11; // enable pullup resistors on PF4,PF0 
+ GPIO_PORTF_DEN_R = 0x1F; // 7) enable digital pins PF4-PF0
+ GPIO_PORTF_DATA_R = 0x00;
+// Setup the interrupt on PortF
+ GPIO_PORTF_ICR_R = 0x11; // Clear any Previous Interrupt 
+ GPIO_PORTF_IM_R |=0x11; // Unmask the interrupts for PF0 and PF4
+ GPIO_PORTF_IS_R |= 0x11; // Make bits PF0 and PF4 level sensitive
+ GPIO_PORTF_IEV_R &= ~0x11; // Sense on Low Level
+ NVIC_EN0_R |= (1<<30); // Enable the Interrupt for PortF in NVIC
+}
+xSemaphoreHandle xBinarySemaphore;
 
+static void vHandler( void *pvParameters )
+{
 
-char* itoa(int num, char* str, int base) {
-    int i = 0;
-    int isNegative = 0;
+    xSemaphoreTake( xBinarySemaphore, 0 );
 
-    // Handle negative numbers
-    if (num < 0 && base == 10) {
-        isNegative = 1;
-        num = -num;
+    for( ;; )
+    {
+        xSemaphoreTake( xBinarySemaphore, portMAX_DELAY );
+				GPIO_PORTF_DATA_R ^= 0x4;
     }
-
-    // Process individual digits
-    do {
-        int rem = num % base;
-        str[i++] = (rem > 9) ? (rem - 10) + 'a' : rem + '0';
-        num /= base;
-    } while (num);
-
-    // If number is negative, append '-'
-    if (isNegative) {
-        str[i++] = '-';
+}
+static void vPeriodic( void *pvParameters )
+{
+    for( ;; )
+    {
+			vTaskDelay( 1000 / portTICK_RATE_MS );
+			GPIO_PORTF_DATA_R ^= 0x2;
     }
-
-    str[i] = '\0'; // Null-terminate the string
-
-    // Reverse the string
-    int j = 0;
-    int len = i;
-    for (j = 0; j < len / 2; j++) {
-        char temp = str[j];
-        str[j] = str[len - j - 1];
-        str[len - j - 1] = temp;
-    }
-
-    return str;
 }
 
-void UART5_init(void)
+void GPIOF_Handler(void)
 {
-	SYSCTL_RCGCUART_R |= 0x20; /* enable clock to UART5 */
-	SYSCTL_RCGCGPIO_R |= 0x10; /* enable clock to PORTE for PE4/Rx and RE5/Tx */
-	/* UART0 initialization */
-	UART5_CTL_R = 0;	 /* UART5 module disbable */
-	UART5_IBRD_R = 104;	 /* for 9600 baud rate, integer = 104 */
-	UART5_FBRD_R = 11;	 /* for 9600 baud rate, fractional = 11*/
-	UART5_CC_R = 0;		 /*select system clock*/
-	UART5_LCRH_R = 0x60; /* data lenght 8-bit, not parity bit, no FIFO */
-	UART5_CTL_R = 0x301; /* Enable UART5 module, Rx and Tx */
+	uint32_t i;
+	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
 
-	/* UART5 TX5 and RX5 use PE4 and PE5. Configure them digital and enable alternate function */
-	GPIO_PORTE_DEN_R |= 0x30;		/* set PE4 and PE5 as digital */
-	GPIO_PORTE_AFSEL_R = 0x30;		/* Use PE4,PE5 alternate function */
-	GPIO_PORTE_AMSEL_R = 0;			/* Turn off analg function*/
-	GPIO_PORTE_PCTL_R = 0x00110000; /* configure PE4 and PE5 for UART */
+	xSemaphoreGiveFromISR( xBinarySemaphore, &xHigherPriorityTaskWoken );
+
+	GPIO_PORTF_ICR_R = 0x11;
+	i = GPIO_PORTF_ICR_R;
+	portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
+	
 }
-
-void UART0_init(void)
-{
-    SYSCTL_RCGCUART_R |= 0x01; /* Enable clock to UART0 */
-    SYSCTL_RCGCGPIO_R |= 0x01; /* Enable clock to Port A for PA0/Rx and PA1/Tx */
-
-    /* UART0 initialization */
-    UART0_CTL_R = 0;          /* UART0 module disable */
-    UART0_IBRD_R = 104;       /* Integer part of the baud rate divisor for 9600 baud rate */
-    UART0_FBRD_R = 11;        /* Fractional part of the baud rate divisor for 9600 baud rate */
-    UART0_CC_R = 0;           /* Select system clock as the UART clock source */
-    UART0_LCRH_R = 0x60;      /* Data length 8-bit, no parity bit, no FIFO */
-    UART0_CTL_R = 0x301;      /* Enable UART0 module, Rx and Tx */
-
-    /* UART0 TX0 and RX0 use PA1 and PA0. Configure them digital and enable alternate function */
-    GPIO_PORTA_DEN_R |= 0x03; /* Set PA0 and PA1 as digital */
-    GPIO_PORTA_AFSEL_R |= 0x03; /* Use PA0, PA1 alternate function */
-    GPIO_PORTA_AMSEL_R = 0;   /* Turn off analog function */
-    GPIO_PORTA_PCTL_R = 0x00000011; /* Configure PA0 and PA1 for UART0 */
-}
-
-
-
-void Task1(void *pvParameters)
-{
-	int btn1State;
-	while (1)
-	{
-		btn1State = GPIO_PORTF_DATA_R & (1 << 0);
-		if (btn1State == 0)
-		{ // Assuming active-low button
-			GPIO_PORTF_DATA_R |= 0x02;
-			cntr++;
-			vTaskDelay(100 / portTICK_PERIOD_MS); // Debounce delay
-		}
-		else {
-			GPIO_PORTF_DATA_R &= ~0x02;
-
-		}
-	}
-}
-
-void Task2(void *pvParameters)
-{
-	while (1)
-	{
-		int btn2State = GPIO_PORTF_DATA_R & (1 << 4);
-		if (btn2State == 0)
-		{ // Assuming active-low button
-		
-			GPIO_PORTF_DATA_R = 0x04;
-			if (xQueueSend(xQueue, &cntr, portMAX_DELAY) == pdPASS)
-			{
-				//cntr = 0; // Reset counter after sending
-			}
-			vTaskDelay(500 / portTICK_PERIOD_MS); // Debounce delay
-		}
-		else {
-			GPIO_PORTF_DATA_R &=~(0x04);
-
-		}
-	}
-}
-
-
-void UART_Write(unsigned char data)
-{
-  while ((UART0_FR_R & (1 << 5)) != 0)
-    ;                /* wait until Tx buffer not full */
-  UART0_DR_R = data; /* before giving it another byte */
-}
-
-void UART_Write_String(char *str)
-{
-  while (*str)
-  {
-    UART_Write(*(str++));
-  }
-}
-
-void Task3(void *pvParameters)
-{
-	int rcvCntr;
-	while (1)
-	{
-		if (xQueueReceive(xQueue, &rcvCntr, portMAX_DELAY))
-		{
-			//printf("Entered here");
-			char final_message[20];
-			sprintf(final_message, "Recieved: %d\n", cntr);
-			cntr = 0;
-			UART_Write_String(final_message); //put rcvcntr
-			xQueueReset(xQueue);
-			taskYIELD();
-		}
-	}
-}
-
-
-
-void psh_btn_init()
-{
-	SYSCTL_RCGCGPIO_R |= 0x20; // Enable clock for PORTF
-	GPIO_PORTF_LOCK_R = 0x4C4F434B;
-	GPIO_PORTF_CR_R = 0x11;
-    GPIO_PORTF_DIR_R &= ~0x11; // PF0 as input
-    GPIO_PORTF_DIR_R |= 0x0E; // PF1 as output
-    GPIO_PORTF_DEN_R |= 0x1F; // Enable digital I/O for PF0 and PF1
-	GPIO_PORTF_PUR_R = 0x11;
-}
-
-void Init()
-{
-	psh_btn_init();
-	UART0_init();
-}
-
 int main()
 {
-	Init();
-	xQueue = xQueueCreate(10, sizeof(uint32_t));
+		
+	PortF_Init();
+	__asm("CPSIE I");
+  vSemaphoreCreateBinary( xBinarySemaphore );
 
-	/*BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
-							const char * const pcName,
-							const configSTACK_DEPTH_TYPE usStackDepth,
-							void * const pvParameters,
-							UBaseType_t uxPriority,
-							TaskHandle_t * const pxCreatedTask );*/
-	xTaskCreate(Task1, "PB1", 200, NULL, 1, NULL);
-	xTaskCreate(Task2, "PB2", 200, NULL, 1, NULL);
-	xTaskCreate(Task3, "Uart0", 200, NULL, 1, NULL);
-	// Startup of the FreeRTOS scheduler.  The program should block here.
-	vTaskStartScheduler();
-
-	// The following line should never be reached.
-	// Failure to allocate enough memory from the heap could be a reason.
-	for (;;)
-		;
+  /* Check the semaphore was created successfully. */
+	if( xBinarySemaphore != NULL )
+	{
+		xTaskCreate( vHandler, "Handler", 240, NULL, 3, NULL );
+		xTaskCreate( vPeriodic, "Periodic", 240, NULL, 1, NULL );
+		vTaskStartScheduler();
+	}
+	for( ;; );
 }
+
+
+
+
+
+
+
+
+
+
+
