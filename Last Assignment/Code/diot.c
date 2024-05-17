@@ -1,8 +1,8 @@
 /* Board Support Package (BSP) for the EK-TM4C123GXL board */
 #include <stdint.h>  /* Standard integers. WG14/N843 C99 Standard */
 
-#include "bsp.h"
-#include "miros.h"
+#include "diot.h"
+#include "os.h"
 #include "tm4c123gh6pm.h"
 
 /* on-board LEDs */

@@ -4,22 +4,22 @@ Component: Arm Compiler for Embedded 6.21 Tool: armlink [5ec1fa00]
 
 Section Cross References
 
-    main.o(.text.main_blinky1) refers to bsp.o(.text.BSP_ledGreenOn) for BSP_ledGreenOn
-    main.o(.text.main_blinky1) refers to bsp.o(.text.BSP_delay) for BSP_delay
-    main.o(.text.main_blinky1) refers to bsp.o(.text.BSP_ledGreenOff) for BSP_ledGreenOff
-    main.o(.ARM.exidx.text.main_blinky1) refers to main.o(.text.main_blinky1) for [Anonymous Symbol]
-    main.o(.text.main_blinky2) refers to bsp.o(.text.BSP_ledBlueOn) for BSP_ledBlueOn
-    main.o(.text.main_blinky2) refers to bsp.o(.text.BSP_delay) for BSP_delay
-    main.o(.text.main_blinky2) refers to bsp.o(.text.BSP_ledBlueOff) for BSP_ledBlueOff
-    main.o(.ARM.exidx.text.main_blinky2) refers to main.o(.text.main_blinky2) for [Anonymous Symbol]
-    main.o(.text.main) refers to bsp.o(.text.BSP_init) for BSP_init
-    main.o(.text.main) refers to miros.o(.text.OS_init) for OS_init
-    main.o(.text.main) refers to miros.o(.text.OSThread_start) for OSThread_start
+    main.o(.text.TaskA) refers to diot.o(.text.BSP_ledGreenOn) for BSP_ledGreenOn
+    main.o(.text.TaskA) refers to diot.o(.text.BSP_delay) for BSP_delay
+    main.o(.text.TaskA) refers to diot.o(.text.BSP_ledGreenOff) for BSP_ledGreenOff
+    main.o(.ARM.exidx.text.TaskA) refers to main.o(.text.TaskA) for [Anonymous Symbol]
+    main.o(.text.TaskB) refers to diot.o(.text.BSP_ledBlueOn) for BSP_ledBlueOn
+    main.o(.text.TaskB) refers to diot.o(.text.BSP_delay) for BSP_delay
+    main.o(.text.TaskB) refers to diot.o(.text.BSP_ledBlueOff) for BSP_ledBlueOff
+    main.o(.ARM.exidx.text.TaskB) refers to main.o(.text.TaskB) for [Anonymous Symbol]
+    main.o(.text.main) refers to diot.o(.text.BSP_init) for BSP_init
+    main.o(.text.main) refers to os.o(.text.OS_init) for OS_init
+    main.o(.text.main) refers to os.o(.text.OSThread_start) for OSThread_start
     main.o(.text.main) refers to main.o(.bss..L_MergedGlobals) for [Anonymous Symbol]
-    main.o(.text.main) refers to main.o(.text.main_blinky1) for main_blinky1
-    main.o(.text.main) refers to main.o(.bss.stack_blinky1) for stack_blinky1
-    main.o(.text.main) refers to main.o(.text.main_blinky2) for main_blinky2
-    main.o(.text.main) refers to main.o(.bss.stack_blinky2) for stack_blinky2
+    main.o(.text.main) refers to main.o(.text.TaskA) for TaskA
+    main.o(.text.main) refers to main.o(.bss.stackA) for stackA
+    main.o(.text.main) refers to main.o(.text.TaskB) for TaskB
+    main.o(.text.main) refers to main.o(.bss.stackB) for stackB
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     dio.o(.text.LED_Init) refers to dio.o(.text.DIO_DIR) for DIO_DIR
     dio.o(.ARM.exidx.text.LED_Init) refers to dio.o(.text.LED_Init) for [Anonymous Symbol]
@@ -28,33 +28,34 @@ Section Cross References
     dio.o(.ARM.exidx.text.DIO_togglepin) refers to dio.o(.text.DIO_togglepin) for [Anonymous Symbol]
     dio.o(.ARM.exidx.text.DIO_WritePin) refers to dio.o(.text.DIO_WritePin) for [Anonymous Symbol]
     dio.o(.ARM.exidx.text.DIO_WritePort) refers to dio.o(.text.DIO_WritePort) for [Anonymous Symbol]
-    bsp.o(.text.SysTick_Handler) refers to miros.o(.text.OS_sched) for OS_sched
-    bsp.o(.text.SysTick_Handler) refers to bsp.o(.bss.l_tickCtr) for [Anonymous Symbol]
-    bsp.o(.ARM.exidx.text.SysTick_Handler) refers to bsp.o(.text.SysTick_Handler) for [Anonymous Symbol]
-    bsp.o(.ARM.exidx.text.BSP_init) refers to bsp.o(.text.BSP_init) for [Anonymous Symbol]
-    bsp.o(.text.BSP_tickCtr) refers to bsp.o(.bss.l_tickCtr) for [Anonymous Symbol]
-    bsp.o(.ARM.exidx.text.BSP_tickCtr) refers to bsp.o(.text.BSP_tickCtr) for [Anonymous Symbol]
-    bsp.o(.text.BSP_delay) refers to bsp.o(.bss.l_tickCtr) for [Anonymous Symbol]
-    bsp.o(.ARM.exidx.text.BSP_delay) refers to bsp.o(.text.BSP_delay) for [Anonymous Symbol]
-    bsp.o(.ARM.exidx.text.BSP_ledRedOn) refers to bsp.o(.text.BSP_ledRedOn) for [Anonymous Symbol]
-    bsp.o(.ARM.exidx.text.BSP_ledRedOff) refers to bsp.o(.text.BSP_ledRedOff) for [Anonymous Symbol]
-    bsp.o(.ARM.exidx.text.BSP_ledBlueOn) refers to bsp.o(.text.BSP_ledBlueOn) for [Anonymous Symbol]
-    bsp.o(.ARM.exidx.text.BSP_ledBlueOff) refers to bsp.o(.text.BSP_ledBlueOff) for [Anonymous Symbol]
-    bsp.o(.ARM.exidx.text.BSP_ledGreenOn) refers to bsp.o(.text.BSP_ledGreenOn) for [Anonymous Symbol]
-    bsp.o(.ARM.exidx.text.BSP_ledGreenOff) refers to bsp.o(.text.BSP_ledGreenOff) for [Anonymous Symbol]
-    miros.o(.ARM.exidx.text.OS_init) refers to miros.o(.text.OS_init) for [Anonymous Symbol]
-    miros.o(.text.OS_sched) refers to miros.o(.bss..L_MergedGlobals) for [Anonymous Symbol]
-    miros.o(.ARM.exidx.text.OS_sched) refers to miros.o(.text.OS_sched) for [Anonymous Symbol]
-    miros.o(.ARM.exidx.text.OSThread_start) refers to miros.o(.text.OSThread_start) for [Anonymous Symbol]
-    miros.o(.text.PendSV_Handler) refers to miros.o(.bss..L_MergedGlobals) for OS_curr
-    miros.o(.ARM.exidx.text.PendSV_Handler) refers to miros.o(.text.PendSV_Handler) for [Anonymous Symbol]
+    diot.o(.text.SysTick_Handler) refers to os.o(.text.OS_sched) for OS_sched
+    diot.o(.text.SysTick_Handler) refers to diot.o(.bss.l_tickCtr) for [Anonymous Symbol]
+    diot.o(.ARM.exidx.text.SysTick_Handler) refers to diot.o(.text.SysTick_Handler) for [Anonymous Symbol]
+    diot.o(.ARM.exidx.text.BSP_init) refers to diot.o(.text.BSP_init) for [Anonymous Symbol]
+    diot.o(.text.BSP_tickCtr) refers to diot.o(.bss.l_tickCtr) for [Anonymous Symbol]
+    diot.o(.ARM.exidx.text.BSP_tickCtr) refers to diot.o(.text.BSP_tickCtr) for [Anonymous Symbol]
+    diot.o(.text.BSP_delay) refers to diot.o(.bss.l_tickCtr) for [Anonymous Symbol]
+    diot.o(.ARM.exidx.text.BSP_delay) refers to diot.o(.text.BSP_delay) for [Anonymous Symbol]
+    diot.o(.ARM.exidx.text.BSP_ledRedOn) refers to diot.o(.text.BSP_ledRedOn) for [Anonymous Symbol]
+    diot.o(.ARM.exidx.text.BSP_ledRedOff) refers to diot.o(.text.BSP_ledRedOff) for [Anonymous Symbol]
+    diot.o(.ARM.exidx.text.BSP_ledBlueOn) refers to diot.o(.text.BSP_ledBlueOn) for [Anonymous Symbol]
+    diot.o(.ARM.exidx.text.BSP_ledBlueOff) refers to diot.o(.text.BSP_ledBlueOff) for [Anonymous Symbol]
+    diot.o(.ARM.exidx.text.BSP_ledGreenOn) refers to diot.o(.text.BSP_ledGreenOn) for [Anonymous Symbol]
+    diot.o(.ARM.exidx.text.BSP_ledGreenOff) refers to diot.o(.text.BSP_ledGreenOff) for [Anonymous Symbol]
+    os.o(.ARM.exidx.text.OS_init) refers to os.o(.text.OS_init) for [Anonymous Symbol]
+    os.o(.text.OS_sched) refers to os.o(.bss..L_MergedGlobals) for [Anonymous Symbol]
+    os.o(.text.OS_sched) refers to main.o(.bss..L_MergedGlobals) for taskB
+    os.o(.ARM.exidx.text.OS_sched) refers to os.o(.text.OS_sched) for [Anonymous Symbol]
+    os.o(.ARM.exidx.text.OSThread_start) refers to os.o(.text.OSThread_start) for [Anonymous Symbol]
+    os.o(.text.PendSV_Handler) refers to os.o(.bss..L_MergedGlobals) for OS_curr
+    os.o(.ARM.exidx.text.PendSV_Handler) refers to os.o(.text.PendSV_Handler) for [Anonymous Symbol]
     startup_tm4c123.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_tm4c123.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_tm4c123.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_tm4c123.o(RESET) refers to startup_tm4c123.o(STACK) for __initial_sp
     startup_tm4c123.o(RESET) refers to startup_tm4c123.o(.text) for Reset_Handler
-    startup_tm4c123.o(RESET) refers to miros.o(.text.PendSV_Handler) for PendSV_Handler
-    startup_tm4c123.o(RESET) refers to bsp.o(.text.SysTick_Handler) for SysTick_Handler
+    startup_tm4c123.o(RESET) refers to os.o(.text.PendSV_Handler) for PendSV_Handler
+    startup_tm4c123.o(RESET) refers to diot.o(.text.SysTick_Handler) for SysTick_Handler
     startup_tm4c123.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_tm4c123.o(.text) refers to system_tm4c123.o(.text.SystemInit) for SystemInit
     startup_tm4c123.o(.text) refers to __main.o(!!!main) for __main
@@ -179,8 +180,8 @@ Section Cross References
 Removing Unused input sections from the image.
 
     Removing main.o(.text), (0 bytes).
-    Removing main.o(.ARM.exidx.text.main_blinky1), (8 bytes).
-    Removing main.o(.ARM.exidx.text.main_blinky2), (8 bytes).
+    Removing main.o(.ARM.exidx.text.TaskA), (8 bytes).
+    Removing main.o(.ARM.exidx.text.TaskB), (8 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
     Removing main.o(.ARM.use_no_argv), (4 bytes).
     Removing dio.o(.text), (0 bytes).
@@ -196,25 +197,25 @@ Removing Unused input sections from the image.
     Removing dio.o(.ARM.exidx.text.DIO_WritePin), (8 bytes).
     Removing dio.o(.text.DIO_WritePort), (52 bytes).
     Removing dio.o(.ARM.exidx.text.DIO_WritePort), (8 bytes).
-    Removing bsp.o(.text), (0 bytes).
-    Removing bsp.o(.ARM.exidx.text.SysTick_Handler), (8 bytes).
-    Removing bsp.o(.ARM.exidx.text.BSP_init), (8 bytes).
-    Removing bsp.o(.text.BSP_tickCtr), (16 bytes).
-    Removing bsp.o(.ARM.exidx.text.BSP_tickCtr), (8 bytes).
-    Removing bsp.o(.ARM.exidx.text.BSP_delay), (8 bytes).
-    Removing bsp.o(.text.BSP_ledRedOn), (16 bytes).
-    Removing bsp.o(.ARM.exidx.text.BSP_ledRedOn), (8 bytes).
-    Removing bsp.o(.text.BSP_ledRedOff), (16 bytes).
-    Removing bsp.o(.ARM.exidx.text.BSP_ledRedOff), (8 bytes).
-    Removing bsp.o(.ARM.exidx.text.BSP_ledBlueOn), (8 bytes).
-    Removing bsp.o(.ARM.exidx.text.BSP_ledBlueOff), (8 bytes).
-    Removing bsp.o(.ARM.exidx.text.BSP_ledGreenOn), (8 bytes).
-    Removing bsp.o(.ARM.exidx.text.BSP_ledGreenOff), (8 bytes).
-    Removing miros.o(.text), (0 bytes).
-    Removing miros.o(.ARM.exidx.text.OS_init), (8 bytes).
-    Removing miros.o(.ARM.exidx.text.OS_sched), (8 bytes).
-    Removing miros.o(.ARM.exidx.text.OSThread_start), (8 bytes).
-    Removing miros.o(.ARM.exidx.text.PendSV_Handler), (8 bytes).
+    Removing diot.o(.text), (0 bytes).
+    Removing diot.o(.ARM.exidx.text.SysTick_Handler), (8 bytes).
+    Removing diot.o(.ARM.exidx.text.BSP_init), (8 bytes).
+    Removing diot.o(.text.BSP_tickCtr), (16 bytes).
+    Removing diot.o(.ARM.exidx.text.BSP_tickCtr), (8 bytes).
+    Removing diot.o(.ARM.exidx.text.BSP_delay), (8 bytes).
+    Removing diot.o(.text.BSP_ledRedOn), (16 bytes).
+    Removing diot.o(.ARM.exidx.text.BSP_ledRedOn), (8 bytes).
+    Removing diot.o(.text.BSP_ledRedOff), (16 bytes).
+    Removing diot.o(.ARM.exidx.text.BSP_ledRedOff), (8 bytes).
+    Removing diot.o(.ARM.exidx.text.BSP_ledBlueOn), (8 bytes).
+    Removing diot.o(.ARM.exidx.text.BSP_ledBlueOff), (8 bytes).
+    Removing diot.o(.ARM.exidx.text.BSP_ledGreenOn), (8 bytes).
+    Removing diot.o(.ARM.exidx.text.BSP_ledGreenOff), (8 bytes).
+    Removing os.o(.text), (0 bytes).
+    Removing os.o(.ARM.exidx.text.OS_init), (8 bytes).
+    Removing os.o(.ARM.exidx.text.OS_sched), (8 bytes).
+    Removing os.o(.ARM.exidx.text.OSThread_start), (8 bytes).
+    Removing os.o(.ARM.exidx.text.PendSV_Handler), (8 bytes).
     Removing system_tm4c123.o(.text), (0 bytes).
     Removing system_tm4c123.o(.text.SystemCoreClockUpdate), (136 bytes).
     Removing system_tm4c123.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
@@ -286,10 +287,10 @@ Image Symbol Table
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
     DIO.c                                    0x00000000   Number         0  dio.o ABSOLUTE
     RTE/Device/TM4C123GH6PM/startup_TM4C123.s 0x00000000   Number         0  startup_tm4c123.o ABSOLUTE
-    bsp.c                                    0x00000000   Number         0  bsp.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    diot.c                                   0x00000000   Number         0  diot.o ABSOLUTE
     main.c                                   0x00000000   Number         0  main.o ABSOLUTE
-    miros.c                                  0x00000000   Number         0  miros.o ABSOLUTE
+    os.c                                     0x00000000   Number         0  os.o ABSOLUTE
     system_TM4C123.c                         0x00000000   Number         0  system_tm4c123.o ABSOLUTE
     RESET                                    0x00000000   Section      620  startup_tm4c123.o(RESET)
     !!!main                                  0x0000026c   Section        8  __main.o(!!!main)
@@ -347,44 +348,46 @@ Image Symbol Table
     .text                                    0x0000049c   Section        0  sys_exit.o(.text)
     .text                                    0x000004a8   Section        2  use_no_semi.o(.text)
     .text                                    0x000004aa   Section        0  indicate_semi.o(.text)
-    [Anonymous Symbol]                       0x000004ac   Section        0  bsp.o(.text.BSP_delay)
-    [Anonymous Symbol]                       0x000004c4   Section        0  bsp.o(.text.BSP_init)
-    __arm_cp.1_0                             0x000004f0   Number         4  bsp.o(.text.BSP_init)
-    __arm_cp.1_1                             0x000004f4   Number         4  bsp.o(.text.BSP_init)
-    __arm_cp.1_2                             0x000004f8   Number         4  bsp.o(.text.BSP_init)
-    [Anonymous Symbol]                       0x000004fc   Section        0  bsp.o(.text.BSP_ledBlueOff)
-    [Anonymous Symbol]                       0x00000508   Section        0  bsp.o(.text.BSP_ledBlueOn)
-    [Anonymous Symbol]                       0x00000514   Section        0  bsp.o(.text.BSP_ledGreenOff)
-    [Anonymous Symbol]                       0x00000520   Section        0  bsp.o(.text.BSP_ledGreenOn)
-    __arm_cp.8_0                             0x0000052c   Number         4  bsp.o(.text.BSP_ledGreenOn)
-    [Anonymous Symbol]                       0x00000530   Section        0  miros.o(.text.OSThread_start)
-    __arm_cp.2_0                             0x000005a8   Number         4  miros.o(.text.OSThread_start)
-    [Anonymous Symbol]                       0x000005ac   Section        0  miros.o(.text.OS_init)
-    __arm_cp.0_0                             0x000005b8   Number         4  miros.o(.text.OS_init)
-    [Anonymous Symbol]                       0x000005bc   Section        0  miros.o(.text.OS_sched)
-    __arm_cp.1_0                             0x000005d0   Number         4  miros.o(.text.OS_sched)
-    __arm_cp.1_1                             0x000005d4   Number         4  miros.o(.text.OS_sched)
-    [Anonymous Symbol]                       0x000005d8   Section        0  miros.o(.text.PendSV_Handler)
-    PendSV_restore                           0x000005ec   Number         0  miros.o(.text.PendSV_Handler)
-    [Anonymous Symbol]                       0x0000060c   Section        0  bsp.o(.text.SysTick_Handler)
-    __arm_cp.0_0                             0x00000620   Number         4  bsp.o(.text.SysTick_Handler)
-    [Anonymous Symbol]                       0x00000624   Section        0  system_tm4c123.o(.text.SystemInit)
-    __arm_cp.2_0                             0x00000630   Number         4  system_tm4c123.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x00000634   Section        0  main.o(.text.main)
-    __arm_cp.2_0                             0x00000658   Number         4  main.o(.text.main)
-    __arm_cp.2_1                             0x0000065c   Number         4  main.o(.text.main)
-    __arm_cp.2_2                             0x00000660   Number         4  main.o(.text.main)
-    __arm_cp.2_3                             0x00000664   Number         4  main.o(.text.main)
-    __arm_cp.2_4                             0x00000668   Number         4  main.o(.text.main)
-    [Anonymous Symbol]                       0x0000066c   Section        0  main.o(.text.main_blinky1)
-    [Anonymous Symbol]                       0x00000682   Section        0  main.o(.text.main_blinky2)
-    $v0                                      0x00000698   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x00000698   Section       26  fpinit.o(x$fpl$fpinit)
+    [Anonymous Symbol]                       0x000004ac   Section        0  diot.o(.text.BSP_delay)
+    [Anonymous Symbol]                       0x000004c4   Section        0  diot.o(.text.BSP_init)
+    __arm_cp.1_0                             0x000004f0   Number         4  diot.o(.text.BSP_init)
+    __arm_cp.1_1                             0x000004f4   Number         4  diot.o(.text.BSP_init)
+    __arm_cp.1_2                             0x000004f8   Number         4  diot.o(.text.BSP_init)
+    [Anonymous Symbol]                       0x000004fc   Section        0  diot.o(.text.BSP_ledBlueOff)
+    [Anonymous Symbol]                       0x00000508   Section        0  diot.o(.text.BSP_ledBlueOn)
+    [Anonymous Symbol]                       0x00000514   Section        0  diot.o(.text.BSP_ledGreenOff)
+    [Anonymous Symbol]                       0x00000520   Section        0  diot.o(.text.BSP_ledGreenOn)
+    __arm_cp.8_0                             0x0000052c   Number         4  diot.o(.text.BSP_ledGreenOn)
+    [Anonymous Symbol]                       0x00000530   Section        0  os.o(.text.OSThread_start)
+    __arm_cp.2_0                             0x000005a8   Number         4  os.o(.text.OSThread_start)
+    [Anonymous Symbol]                       0x000005ac   Section        0  os.o(.text.OS_init)
+    __arm_cp.0_0                             0x000005b8   Number         4  os.o(.text.OS_init)
+    [Anonymous Symbol]                       0x000005bc   Section        0  os.o(.text.OS_sched)
+    __arm_cp.1_0                             0x000005e0   Number         4  os.o(.text.OS_sched)
+    __arm_cp.1_1                             0x000005e4   Number         4  os.o(.text.OS_sched)
+    __arm_cp.1_2                             0x000005e8   Number         4  os.o(.text.OS_sched)
+    __arm_cp.1_3                             0x000005ec   Number         4  os.o(.text.OS_sched)
+    [Anonymous Symbol]                       0x000005f0   Section        0  os.o(.text.PendSV_Handler)
+    PendSV_restore                           0x00000604   Number         0  os.o(.text.PendSV_Handler)
+    [Anonymous Symbol]                       0x00000624   Section        0  diot.o(.text.SysTick_Handler)
+    __arm_cp.0_0                             0x00000638   Number         4  diot.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x0000063c   Section        0  system_tm4c123.o(.text.SystemInit)
+    __arm_cp.2_0                             0x00000648   Number         4  system_tm4c123.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x0000064c   Section        0  main.o(.text.TaskA)
+    [Anonymous Symbol]                       0x00000662   Section        0  main.o(.text.TaskB)
+    [Anonymous Symbol]                       0x00000678   Section        0  main.o(.text.main)
+    __arm_cp.2_0                             0x0000069c   Number         4  main.o(.text.main)
+    __arm_cp.2_1                             0x000006a0   Number         4  main.o(.text.main)
+    __arm_cp.2_2                             0x000006a4   Number         4  main.o(.text.main)
+    __arm_cp.2_3                             0x000006a8   Number         4  main.o(.text.main)
+    __arm_cp.2_4                             0x000006ac   Number         4  main.o(.text.main)
+    $v0                                      0x000006b0   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x000006b0   Section       26  fpinit.o(x$fpl$fpinit)
     .bss                                     0x20000000   Section       96  libspace.o(.bss)
     [Anonymous Symbol]                       0x20000060   Section        0  main.o(.bss..L_MergedGlobals)
-    [Anonymous Symbol]                       0x20000068   Section        0  miros.o(.bss..L_MergedGlobals)
-    l_tickCtr                                0x20000070   Data           4  bsp.o(.bss.l_tickCtr)
-    [Anonymous Symbol]                       0x20000070   Section        0  bsp.o(.bss.l_tickCtr)
+    [Anonymous Symbol]                       0x20000068   Section        0  os.o(.bss..L_MergedGlobals)
+    l_tickCtr                                0x20000070   Data           4  diot.o(.bss.l_tickCtr)
+    [Anonymous Symbol]                       0x20000070   Section        0  diot.o(.bss.l_tickCtr)
     Heap_Mem                                 0x200001b8   Data           0  startup_tm4c123.o(HEAP)
     Stack_Mem                                0x200001b8   Data         512  startup_tm4c123.o(STACK)
     HEAP                                     0x200001b8   Section        0  startup_tm4c123.o(HEAP)
@@ -606,34 +609,34 @@ Image Symbol Table
     __I$use$semihosting                      0x000004a9   Thumb Code     0  use_no_semi.o(.text)
     __use_no_semihosting_swi                 0x000004a9   Thumb Code     2  use_no_semi.o(.text)
     __semihosting_library_function           0x000004ab   Thumb Code     0  indicate_semi.o(.text)
-    BSP_delay                                0x000004ad   Thumb Code    24  bsp.o(.text.BSP_delay)
-    BSP_init                                 0x000004c5   Thumb Code    44  bsp.o(.text.BSP_init)
-    BSP_ledBlueOff                           0x000004fd   Thumb Code    12  bsp.o(.text.BSP_ledBlueOff)
-    BSP_ledBlueOn                            0x00000509   Thumb Code    12  bsp.o(.text.BSP_ledBlueOn)
-    BSP_ledGreenOff                          0x00000515   Thumb Code    12  bsp.o(.text.BSP_ledGreenOff)
-    BSP_ledGreenOn                           0x00000521   Thumb Code    12  bsp.o(.text.BSP_ledGreenOn)
-    OSThread_start                           0x00000531   Thumb Code   120  miros.o(.text.OSThread_start)
-    OS_init                                  0x000005ad   Thumb Code    12  miros.o(.text.OS_init)
-    OS_sched                                 0x000005bd   Thumb Code    20  miros.o(.text.OS_sched)
-    PendSV_Handler                           0x000005d9   Thumb Code    44  miros.o(.text.PendSV_Handler)
-    SysTick_Handler                          0x0000060d   Thumb Code    20  bsp.o(.text.SysTick_Handler)
-    SystemInit                               0x00000625   Thumb Code    12  system_tm4c123.o(.text.SystemInit)
-    main                                     0x00000635   Thumb Code    36  main.o(.text.main)
-    main_blinky1                             0x0000066d   Thumb Code    22  main.o(.text.main_blinky1)
-    main_blinky2                             0x00000683   Thumb Code    22  main.o(.text.main_blinky2)
-    _fp_init                                 0x00000699   Thumb Code    26  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x000006b1   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x000006b1   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    Region$$Table$$Base                      0x000006b4   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000006c4   Number         0  anon$$obj.o(Region$$Table)
+    BSP_delay                                0x000004ad   Thumb Code    24  diot.o(.text.BSP_delay)
+    BSP_init                                 0x000004c5   Thumb Code    44  diot.o(.text.BSP_init)
+    BSP_ledBlueOff                           0x000004fd   Thumb Code    12  diot.o(.text.BSP_ledBlueOff)
+    BSP_ledBlueOn                            0x00000509   Thumb Code    12  diot.o(.text.BSP_ledBlueOn)
+    BSP_ledGreenOff                          0x00000515   Thumb Code    12  diot.o(.text.BSP_ledGreenOff)
+    BSP_ledGreenOn                           0x00000521   Thumb Code    12  diot.o(.text.BSP_ledGreenOn)
+    OSThread_start                           0x00000531   Thumb Code   120  os.o(.text.OSThread_start)
+    OS_init                                  0x000005ad   Thumb Code    12  os.o(.text.OS_init)
+    OS_sched                                 0x000005bd   Thumb Code    36  os.o(.text.OS_sched)
+    PendSV_Handler                           0x000005f1   Thumb Code    44  os.o(.text.PendSV_Handler)
+    SysTick_Handler                          0x00000625   Thumb Code    20  diot.o(.text.SysTick_Handler)
+    SystemInit                               0x0000063d   Thumb Code    12  system_tm4c123.o(.text.SystemInit)
+    TaskA                                    0x0000064d   Thumb Code    22  main.o(.text.TaskA)
+    TaskB                                    0x00000663   Thumb Code    22  main.o(.text.TaskB)
+    main                                     0x00000679   Thumb Code    36  main.o(.text.main)
+    _fp_init                                 0x000006b1   Thumb Code    26  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x000006c9   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x000006c9   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    Region$$Table$$Base                      0x000006cc   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000006dc   Number         0  anon$$obj.o(Region$$Table)
     __libspace_start                         0x20000000   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x20000060   Data           0  libspace.o(.bss)
-    blinky1                                  0x20000060   Data           4  main.o(.bss..L_MergedGlobals)
-    blinky2                                  0x20000064   Data           4  main.o(.bss..L_MergedGlobals)
-    OS_next                                  0x20000068   Data           4  miros.o(.bss..L_MergedGlobals)
-    OS_curr                                  0x2000006c   Data           4  miros.o(.bss..L_MergedGlobals)
-    stack_blinky1                            0x20000074   Data         160  main.o(.bss.stack_blinky1)
-    stack_blinky2                            0x20000114   Data         160  main.o(.bss.stack_blinky2)
+    taskA                                    0x20000060   Data           4  main.o(.bss..L_MergedGlobals)
+    taskB                                    0x20000064   Data           4  main.o(.bss..L_MergedGlobals)
+    OS_curr                                  0x20000068   Data           4  os.o(.bss..L_MergedGlobals)
+    OS_next                                  0x2000006c   Data           4  os.o(.bss..L_MergedGlobals)
+    stackA                                   0x20000074   Data         160  main.o(.bss.stackA)
+    stackB                                   0x20000114   Data         160  main.o(.bss.stackB)
 
 
 
@@ -643,9 +646,9 @@ Memory Map of the image
 
   Image Entry point : 0x0000031d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x000006c4, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x000006dc, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000006c4, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000006dc, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -708,42 +711,42 @@ Memory Map of the image
     0x000004a8   0x000004a8   0x00000002   Code   RO          219    .text               c_w.l(use_no_semi.o)
     0x000004aa   0x000004aa   0x00000000   Code   RO          221    .text               c_w.l(indicate_semi.o)
     0x000004aa   0x000004aa   0x00000002   PAD
-    0x000004ac   0x000004ac   0x00000018   Code   RO           45    .text.BSP_delay     bsp.o
-    0x000004c4   0x000004c4   0x00000038   Code   RO           41    .text.BSP_init      bsp.o
-    0x000004fc   0x000004fc   0x0000000c   Code   RO           53    .text.BSP_ledBlueOff  bsp.o
-    0x00000508   0x00000508   0x0000000c   Code   RO           51    .text.BSP_ledBlueOn  bsp.o
-    0x00000514   0x00000514   0x0000000c   Code   RO           57    .text.BSP_ledGreenOff  bsp.o
-    0x00000520   0x00000520   0x00000010   Code   RO           55    .text.BSP_ledGreenOn  bsp.o
-    0x00000530   0x00000530   0x0000007c   Code   RO           72    .text.OSThread_start  miros.o
-    0x000005ac   0x000005ac   0x00000010   Code   RO           68    .text.OS_init       miros.o
-    0x000005bc   0x000005bc   0x0000001c   Code   RO           70    .text.OS_sched      miros.o
-    0x000005d8   0x000005d8   0x00000034   Code   RO           74    .text.PendSV_Handler  miros.o
-    0x0000060c   0x0000060c   0x00000018   Code   RO           39    .text.SysTick_Handler  bsp.o
-    0x00000624   0x00000624   0x00000010   Code   RO           98    .text.SystemInit    system_tm4c123.o
-    0x00000634   0x00000634   0x00000038   Code   RO            6    .text.main          main.o
-    0x0000066c   0x0000066c   0x00000016   Code   RO            2    .text.main_blinky1  main.o
-    0x00000682   0x00000682   0x00000016   Code   RO            4    .text.main_blinky2  main.o
-    0x00000698   0x00000698   0x0000001a   Code   RO          202    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x000006b2   0x000006b2   0x00000002   PAD
-    0x000006b4   0x000006b4   0x00000010   Data   RO          277    Region$$Table       anon$$obj.o
+    0x000004ac   0x000004ac   0x00000018   Code   RO           45    .text.BSP_delay     diot.o
+    0x000004c4   0x000004c4   0x00000038   Code   RO           41    .text.BSP_init      diot.o
+    0x000004fc   0x000004fc   0x0000000c   Code   RO           53    .text.BSP_ledBlueOff  diot.o
+    0x00000508   0x00000508   0x0000000c   Code   RO           51    .text.BSP_ledBlueOn  diot.o
+    0x00000514   0x00000514   0x0000000c   Code   RO           57    .text.BSP_ledGreenOff  diot.o
+    0x00000520   0x00000520   0x00000010   Code   RO           55    .text.BSP_ledGreenOn  diot.o
+    0x00000530   0x00000530   0x0000007c   Code   RO           72    .text.OSThread_start  os.o
+    0x000005ac   0x000005ac   0x00000010   Code   RO           68    .text.OS_init       os.o
+    0x000005bc   0x000005bc   0x00000034   Code   RO           70    .text.OS_sched      os.o
+    0x000005f0   0x000005f0   0x00000034   Code   RO           74    .text.PendSV_Handler  os.o
+    0x00000624   0x00000624   0x00000018   Code   RO           39    .text.SysTick_Handler  diot.o
+    0x0000063c   0x0000063c   0x00000010   Code   RO           98    .text.SystemInit    system_tm4c123.o
+    0x0000064c   0x0000064c   0x00000016   Code   RO            2    .text.TaskA         main.o
+    0x00000662   0x00000662   0x00000016   Code   RO            4    .text.TaskB         main.o
+    0x00000678   0x00000678   0x00000038   Code   RO            6    .text.main          main.o
+    0x000006b0   0x000006b0   0x0000001a   Code   RO          202    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x000006ca   0x000006ca   0x00000002   PAD
+    0x000006cc   0x000006cc   0x00000010   Data   RO          277    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x000006c4, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x000006dc, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
 
     **** No section assigned to this execution region ****
 
 
-    Execution Region ER_ZI (Exec base: 0x20000000, Load base: 0x000006c4, Size: 0x000003b8, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x20000000, Load base: 0x000006dc, Size: 0x000003b8, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000        -       0x00000060   Zero   RW          142    .bss                c_w.l(libspace.o)
     0x20000060        -       0x00000008   Zero   RW           11    .bss..L_MergedGlobals  main.o
-    0x20000068        -       0x00000008   Zero   RW           76    .bss..L_MergedGlobals  miros.o
-    0x20000070        -       0x00000004   Zero   RW           59    .bss.l_tickCtr      bsp.o
-    0x20000074        -       0x000000a0   Zero   RW            8    .bss.stack_blinky1  main.o
-    0x20000114        -       0x000000a0   Zero   RW            9    .bss.stack_blinky2  main.o
-    0x200001b4   0x000006c4   0x00000004   PAD
+    0x20000068        -       0x00000008   Zero   RW           76    .bss..L_MergedGlobals  os.o
+    0x20000070        -       0x00000004   Zero   RW           59    .bss.l_tickCtr      diot.o
+    0x20000074        -       0x000000a0   Zero   RW            8    .bss.stackA         main.o
+    0x20000114        -       0x000000a0   Zero   RW            9    .bss.stackB         main.o
+    0x200001b4   0x000006dc   0x00000004   PAD
     0x200001b8        -       0x00000000   Zero   RW           85    HEAP                startup_tm4c123.o
     0x200001b8        -       0x00000200   Zero   RW           84    STACK               startup_tm4c123.o
 
@@ -755,14 +758,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       156         20          0          0          4       1700   bsp.o
-       100         20          0          0        328        949   main.o
-       220         24          0          0          8       1734   miros.o
-       276         24        620          0        512       5480   startup_tm4c123.o
-        16          4          0          0          0       6458   system_tm4c123.o
+       156         20          0          0          4       1711   diot.o
+       100         20          0          0        328        923   main.o
+       244         32          0          0          8       1690   os.o
+       276         24        620          0        512       5488   startup_tm4c123.o
+        16          4          0          0          0       6467   system_tm4c123.o
 
     ----------------------------------------------------------------------
-       768         92        636          0        856      16321   Object Totals
+       792        100        636          0        856      16279   Object Totals
          0          0         16          0          0          0   (incl. Generated)
          0          0          0          0          4          0   (incl. Padding)
 
@@ -812,15 +815,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1096        108        636          0        952      16805   Grand Totals
-      1096        108        636          0        952      16805   ELF Image Totals
-      1096        108        636          0          0          0   ROM Totals
+      1120        116        636          0        952      16763   Grand Totals
+      1120        116        636          0        952      16763   ELF Image Totals
+      1120        116        636          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 1732 (   1.69kB)
+    Total RO  Size (Code + RO Data)                 1756 (   1.71kB)
     Total RW  Size (RW Data + ZI Data)               952 (   0.93kB)
-    Total ROM Size (Code + RO Data + RW Data)       1732 (   1.69kB)
+    Total ROM Size (Code + RO Data + RW Data)       1756 (   1.71kB)
 
 ==============================================================================
 

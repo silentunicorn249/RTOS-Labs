@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\workspace.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\workspace.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6210000: Last Updated: Thu May 16 22:05:40 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6210000: Last Updated: Fri May 17 19:19:15 2024
 <BR><P>
 <H3>Maximum Stack Usage =         24 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -133,8 +133,8 @@ Mutually Recursive functions
  <LI><a href="#[73]">PWM1_2_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[73]">PWM1_2_Handler</a><BR>
  <LI><a href="#[74]">PWM1_3_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[74]">PWM1_3_Handler</a><BR>
  <LI><a href="#[75]">PWM1_FAULT_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[75]">PWM1_FAULT_Handler</a><BR>
- <LI><a href="#[78]">main_blinky1</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[78]">main_blinky1</a><BR>
- <LI><a href="#[79]">main_blinky2</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[79]">main_blinky2</a><BR>
+ <LI><a href="#[78]">TaskA</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[78]">TaskA</a><BR>
+ <LI><a href="#[79]">TaskB</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[79]">TaskB</a><BR>
 </UL>
 <P>
 <H3>
@@ -209,7 +209,7 @@ Function Pointers
  <LI><a href="#[73]">PWM1_2_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[74]">PWM1_3_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[75]">PWM1_FAULT_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
- <LI><a href="#[8]">PendSV_Handler</a> from miros.o(.text.PendSV_Handler) referenced from startup_tm4c123.o(RESET)
+ <LI><a href="#[8]">PendSV_Handler</a> from os.o(.text.PendSV_Handler) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[17]">QEI0_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[30]">QEI1_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[5e]">QEI2_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
@@ -220,7 +220,7 @@ Function Pointers
  <LI><a href="#[41]">SSI3_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[6]">SVC_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[26]">SYSCTL_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
- <LI><a href="#[9]">SysTick_Handler</a> from bsp.o(.text.SysTick_Handler) referenced from startup_tm4c123.o(RESET)
+ <LI><a href="#[9]">SysTick_Handler</a> from diot.o(.text.SysTick_Handler) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[76]">SystemInit</a> from system_tm4c123.o(.text.SystemInit) referenced from startup_tm4c123.o(.text)
  <LI><a href="#[1d]">TIMER0A_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[1e]">TIMER0B_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
@@ -234,6 +234,8 @@ Function Pointers
  <LI><a href="#[4a]">TIMER4B_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[4b]">TIMER5A_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[4c]">TIMER5B_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
+ <LI><a href="#[78]">TaskA</a> from main.o(.text.TaskA) referenced from main.o(.text.main)
+ <LI><a href="#[79]">TaskB</a> from main.o(.text.TaskB) referenced from main.o(.text.main)
  <LI><a href="#[f]">UART0_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[10]">UART1_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[2b]">UART2_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
@@ -260,8 +262,6 @@ Function Pointers
  <LI><a href="#[57]">WTIMER5A_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[58]">WTIMER5B_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[77]">__main</a> from __main.o(!!!main) referenced from startup_tm4c123.o(.text)
- <LI><a href="#[78]">main_blinky1</a> from main.o(.text.main_blinky1) referenced from main.o(.text.main)
- <LI><a href="#[79]">main_blinky2</a> from main.o(.text.main_blinky2) referenced from main.o(.text.main)
 </UL>
 <P>
 <H3>
@@ -1256,49 +1256,49 @@ Global Symbols
 
 <P><STRONG><a name="[c1]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[92]"></a>BSP_delay</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, bsp.o(.text.BSP_delay))
-<BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_blinky2
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_blinky1
+<P><STRONG><a name="[8f]"></a>BSP_delay</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, diot.o(.text.BSP_delay))
+<BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskB
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskA
 </UL>
 
-<P><STRONG><a name="[8e]"></a>BSP_init</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, bsp.o(.text.BSP_init))
+<P><STRONG><a name="[93]"></a>BSP_init</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, diot.o(.text.BSP_init))
 <BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[95]"></a>BSP_ledBlueOff</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, bsp.o(.text.BSP_ledBlueOff))
-<BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_blinky2
+<P><STRONG><a name="[92]"></a>BSP_ledBlueOff</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, diot.o(.text.BSP_ledBlueOff))
+<BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskB
 </UL>
 
-<P><STRONG><a name="[94]"></a>BSP_ledBlueOn</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, bsp.o(.text.BSP_ledBlueOn))
-<BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_blinky2
+<P><STRONG><a name="[91]"></a>BSP_ledBlueOn</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, diot.o(.text.BSP_ledBlueOn))
+<BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskB
 </UL>
 
-<P><STRONG><a name="[93]"></a>BSP_ledGreenOff</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, bsp.o(.text.BSP_ledGreenOff))
-<BR><BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_blinky1
+<P><STRONG><a name="[90]"></a>BSP_ledGreenOff</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, diot.o(.text.BSP_ledGreenOff))
+<BR><BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskA
 </UL>
 
-<P><STRONG><a name="[91]"></a>BSP_ledGreenOn</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, bsp.o(.text.BSP_ledGreenOn))
-<BR><BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_blinky1
+<P><STRONG><a name="[8e]"></a>BSP_ledGreenOn</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, diot.o(.text.BSP_ledGreenOn))
+<BR><BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskA
 </UL>
 
-<P><STRONG><a name="[90]"></a>OSThread_start</STRONG> (Thumb, 120 bytes, Stack size 24 bytes, miros.o(.text.OSThread_start))
+<P><STRONG><a name="[95]"></a>OSThread_start</STRONG> (Thumb, 120 bytes, Stack size 24 bytes, os.o(.text.OSThread_start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = OSThread_start
 </UL>
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[8f]"></a>OS_init</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, miros.o(.text.OS_init))
+<P><STRONG><a name="[94]"></a>OS_init</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, os.o(.text.OS_init))
 <BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[8d]"></a>OS_sched</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, miros.o(.text.OS_sched))
+<P><STRONG><a name="[8d]"></a>OS_sched</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, os.o(.text.OS_sched))
 <BR><BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
-<P><STRONG><a name="[8]"></a>PendSV_Handler</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, miros.o(.text.PendSV_Handler))
+<P><STRONG><a name="[8]"></a>PendSV_Handler</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, os.o(.text.PendSV_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_tm4c123.o(RESET)
 </UL>
-<P><STRONG><a name="[9]"></a>SysTick_Handler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, bsp.o(.text.SysTick_Handler))
+<P><STRONG><a name="[9]"></a>SysTick_Handler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, diot.o(.text.SysTick_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SysTick_Handler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OS_sched
@@ -1308,36 +1308,36 @@ Global Symbols
 <P><STRONG><a name="[76]"></a>SystemInit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, system_tm4c123.o(.text.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_tm4c123.o(.text)
 </UL>
+<P><STRONG><a name="[78]"></a>TaskA</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, main.o(.text.TaskA))
+<BR><BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_ledGreenOff
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_delay
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_ledGreenOn
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskA
+</UL>
+<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskA
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> main.o(.text.main)
+</UL>
+<P><STRONG><a name="[79]"></a>TaskB</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, main.o(.text.TaskB))
+<BR><BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_ledBlueOff
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_ledBlueOn
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskB
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_delay
+</UL>
+<BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskB
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> main.o(.text.main)
+</UL>
 <P><STRONG><a name="[85]"></a>main</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = main &rArr; OSThread_start
 </UL>
-<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OSThread_start
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OS_init
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_init
+<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OSThread_start
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OS_init
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[78]"></a>main_blinky1</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, main.o(.text.main_blinky1))
-<BR><BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_ledGreenOff
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_delay
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_ledGreenOn
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_blinky1
-</UL>
-<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_blinky1
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> main.o(.text.main)
-</UL>
-<P><STRONG><a name="[79]"></a>main_blinky2</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, main.o(.text.main_blinky2))
-<BR><BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_ledBlueOff
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_ledBlueOn
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_blinky2
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_delay
-</UL>
-<BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main_blinky2
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> main.o(.text.main)
-</UL>
 <P><STRONG><a name="[7f]"></a>_fp_init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, fpinit.o(x$fpl$fpinit))
 <BR><BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_fp_1
 </UL>

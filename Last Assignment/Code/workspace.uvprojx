@@ -420,14 +420,14 @@
               <FilePath>.\DIO.c</FilePath>
             </File>
             <File>
-              <FileName>bsp.c</FileName>
+              <FileName>diot.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\bsp.c</FilePath>
+              <FilePath>.\diot.c</FilePath>
             </File>
             <File>
-              <FileName>miros.c</FileName>
+              <FileName>os.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\miros.c</FilePath>
+              <FilePath>.\os.c</FilePath>
             </File>
           </Files>
         </Group>

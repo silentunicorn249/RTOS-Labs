@@ -28,7 +28,7 @@
 * https://www.state-machine.com
 ****************************************************************************/
 #include <stdint.h>
-#include "miros.h"
+#include "os.h"
 
 OSThread * volatile OS_curr; /* pointer to the current thread */
 OSThread * volatile OS_next; /* pointer to the next thread to run */
@@ -40,8 +40,16 @@ void OS_init(void) {
 
 void OS_sched(void) {
     /* OS_next = ... */
-    OSThread const *next = OS_next; /* volatile to temporary */
-    if (next != OS_curr) {
+    extern OSThread taskA;
+    extern OSThread taskB;
+    if (OS_curr == &taskA){
+        OS_next = &taskB;
+    }
+    else {
+        OS_next = &taskA;
+
+    }
+    if (OS_next != OS_curr) {
         *(uint32_t volatile *)0xE000ED04 = (1U << 28);
     }
 }
